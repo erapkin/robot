@@ -1,5 +1,22 @@
 import random
 
+class Menu:
+	def pickRobot (self):
+		print "Which robot do you want to choose?"
+		print "1)Shinobi, 2)LaserRobot"
+		
+		try:
+			robotPick = (int)(raw_input())
+			if (robotPick == 1):
+				print "You picked Shinobi"
+			elif (robotPick ==2):
+				print "you picked laserrobot"
+			else:
+				print "Wrong number selection, try again"
+				self.pickRobot()
+		except Exception:
+			print "Game over..."
+		
 class Robot :
 	
 	def __init__(self, powerSupply):
@@ -9,10 +26,10 @@ class Robot :
 	def punch(self, amount=3):
 		punchList = ['Doing the Robot on yo face', 'Jackie Chan Strike', '"what is that?" punches face', 'Uppercut', 'B@#$Slap','WubWubWubWubWub', 'Moonwalk all over then STRIKE']
 		
-		print self.powerSupply.powerBalance
 		if  (self.powerSupply.powerBalance > 2):
 			self.powerSupply.drain(amount)
 			print (random.choice(punchList))
+			print (str(self.powerSupply.powerBalance) + " power point" + "(s) " + "remaining\n")
 		else:
 			print "Insufficient power to punch"
 			exit(0)
@@ -58,14 +75,16 @@ duracelBattery = RechargableBattery(100)
 # energizerBattery = RechargableBattery(100)
 shinobi = Robot(duracelBattery)
 
-number = raw_input('How many punches?:')
-shinobi.punch()
+menu = Menu()
+menu.pickRobot()
+
+'''number = raw_input('How many punches?:')
 shinobi.multiplePunch(int(number))
 
 print "======================================="
 print "current power balance: "
 duracelBattery.printPowerBalance()
-
+'''
 
 
 
