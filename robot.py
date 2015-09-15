@@ -4,18 +4,22 @@ class Menu:
 	def pickRobot (self):
 		print "Which robot do you want to choose?"
 		print "1)Shinobi, 2)LaserRobot"
+		running = True
 		
+		while running:	
 		try:
 			robotPick = (int)(raw_input())
 			if (robotPick == 1):
 				print "You picked Shinobi"
 			elif (robotPick ==2):
-				print "you picked laserrobot"
+				print "you picked LaserRobot"
 			else:
-				print "Wrong number selection, try again"
-				self.pickRobot()
+				print "Wrong number selection, try again\n"
+				running = True
 		except Exception:
-			print "Game over..."
+			print "------------------------------------------------------------"
+			print "\nIncorrect input. Please select a number from the menu.\n"
+			
 		
 class Robot :
 	
