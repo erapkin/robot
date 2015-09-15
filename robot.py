@@ -3,14 +3,16 @@ import random
 class Menu:
 	def pickRobot (self):
 		print "Which robot do you want to choose?"
-		print "1)Shinobi, 2)LaserRobot"
+		print "1)Wraith, 2)Hell Knight 3)Juggernaut"
 		
 		try:
 			robotPick = (int)(raw_input())
-			if (robotPick == 1):
-				print "You picked Shinobi"
+			if (robotPick ==1):
+				print "You picked Wraith"
 			elif (robotPick ==2):
-				print "you picked laserrobot"
+				print "You picked Hell Knight"
+			elif (robotPick ==3):
+				print "You picked Juggernaut"
 			else:
 				print "Wrong number selection, try again"
 				self.pickRobot()
@@ -40,16 +42,57 @@ class Robot :
 	
 	# def chargedrain():
 
-class LaserRobot(Robot):
-
-	def shootLaser(self,amount):
-		self.powerSupply.drain(amount)
-		print "Pew Pew"
-
-class NinjaRobot(Robot):
+class JuggernautRobot(Robot):
 	
-	def slice(self,amount):
+	def earthquake(self,amount):
+		self.powersupply.drain(amount)
+		punchList = ['HULK SMASH', 'Prepare for death', 'Im a Brick House', 'What is your mom doing later', 'Ugnnnngggggghghhhhghhhhhhh']
+		
+		if (self.powerSupply.powerBalance > 4):
+			self.powerSupply.drain(amount)
+			print (random.choice(punchList))
+			print (str(self.powerSupply.powerBalance) + " power point" + "(s) " + "remaining\n")
+		else:
+			print "Battery Power Depleted"
+
+class WraithRobot(Robot):
+	
+	def manipulateAether(self,amount):
 		self.powerSupply.drain(amount)
+		punchList = ['I see you', 'Turn around and DIEEEE!!', 'I AM OMNISCIENCE', 'The dark lord calls you', 'Casper is my cousin twice removed']
+		
+		if (self.powerSupply.powerBalance > 4):
+			self.powerSupply.drain(amount)
+			print (random.choice(punchList))
+			print (str(self.powerSupply.powerBalance) + " power point" + "(s) " + "remaining\n")
+		else:
+			print "Battery Power Depleted"
+
+class ShinobiRobot(Robot):
+
+	
+	def teleportSlash(self,amount):
+		self.powerSupply.drain(amount)
+		punchList = []
+
+class HellKnightRobot(Robot):
+	
+	def	doomLance(self,amount):
+		self.powersupply.drain(amount)
+		punchList = ['For glory and dishonor.', 'Reaping souls since 2015', 'My fury engulfs all', 'Deaths grasp is infinite', 'I give no quarter']
+		
+		if (self.powerSupply.powerBalance > 4):
+			self.powerSupply.drain(amount)
+			print (random.choice(punchList))
+			print (str(self.powerSupply.powerBalance) + " power point" + "(s) " + "remaining\n")
+		else:
+			print "Battery Power Depleted"
+		
+		
+		
+
+		
+		
 
 		
 class PowerSupply :
@@ -71,10 +114,6 @@ class RechargableBattery(PowerSupply):
 	def charge (self, amount):
 		self.powerBalance += amount
 		
-duracelBattery = RechargableBattery(100)
-# energizerBattery = RechargableBattery(100)
-shinobi = Robot(duracelBattery)
-
 menu = Menu()
 menu.pickRobot()
 
@@ -86,8 +125,4 @@ print "current power balance: "
 duracelBattery.printPowerBalance()
 '''
 
-
-
-# duracelBattery.drain (5)
-# duracelBattery.charge (15)
 
