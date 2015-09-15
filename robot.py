@@ -114,9 +114,6 @@ class RechargableBattery(PowerSupply):
 menu = Menu()
 menu.pickRobot()
 
-duracelBattery = RechargableBattery(100)
-juggernaut = JuggernautRobot(duracelBattery)
-
 number = raw_input('How many punches?:')
 juggernaut.multiplePunch(int(number))
 print "======================================="

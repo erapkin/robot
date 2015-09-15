@@ -4,5 +4,6 @@ class Test:
 	def testWraithRobot(self):
 		duracelBattery = RechargableBattery(100)
 		wraith = WraithRobot(duracelBattery)
-		wraith.manipulateAether(10)
+		juggernaut = JuggernautRobot(duracelBattery)
+		hellKnight = HellKnightRobot(duracelBattery)
 		
