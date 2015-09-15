@@ -2,7 +2,6 @@ import random
 
 class Menu:
 	def pickRobot (self):
-<<<<<<< HEAD
 		print "Pick your robot?"
 		print "1)Shinobi 2)LaserRobot"
 		running = True
@@ -23,26 +22,6 @@ class Menu:
 				print "------------------------------------------------------------"
 				print "\nIncorrect input. Please select a number from the menu.\n"
 				running = True
-=======
-		print "Which robot do you want to choose?"
-		print "1)Shinobi, 2)LaserRobot"
-		running = True
-		
-		while running:	
-		try:
-			robotPick = (int)(raw_input())
-			if (robotPick == 1):
-				print "You picked Shinobi"
-			elif (robotPick ==2):
-				print "you picked LaserRobot"
-			else:
-				print "Wrong number selection, try again\n"
-				running = True
-		except Exception:
-			print "------------------------------------------------------------"
-			print "\nIncorrect input. Please select a number from the menu.\n"
-			
->>>>>>> b46747ac552b7af634b4f6f307575931e3144321
 		
 class Robot :
 	
@@ -107,10 +86,6 @@ menu.pickRobot()
 
 '''number = raw_input('How many punches?:')
 shinobi.multiplePunch(int(number))
-<<<<<<< HEAD
-=======
-
->>>>>>> b46747ac552b7af634b4f6f307575931e3144321
 print "======================================="
 print "current power balance: "
 duracelBattery.printPowerBalance()
@@ -119,9 +94,4 @@ duracelBattery.printPowerBalance()
 
 
 # duracelBattery.drain (5)
-<<<<<<< HEAD
 # duracelBattery.charge (15)
-=======
-# duracelBattery.charge (15)
-
->>>>>>> b46747ac552b7af634b4f6f307575931e3144321
