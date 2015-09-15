@@ -1,33 +1,6 @@
 import random
 
-class Menu:
-	def pickRobot (self):
-
-		print "Which robot do you want to choose?"
-		print "1)Wraith, 2)Hell Knight 3)Juggernaut"
-		running = True
-		while running:	
-			try:
-				robotPick = (int)(raw_input())
-				if (robotPick == 1):
-					print "You picked Wraith"
-					running = False
-				elif (robotPick ==2):
-					print "You picked Hell Knight"
-					running = False
-				elif (robotPick ==3):
-					print "You picked Juggernaut"
-					running = False
-				else:
-					print "Wrong number selection, try again\n"
-					running = True
-			except Exception:
-				print "------------------------------------------------------------"
-				print "\nIncorrect input. Please select a number from the menu.\n"
-				running = True
-
-		
-class Robot :
+class Robot (object):
 	
 	def __init__(self, powerSupply):
 		self.powerSupply = powerSupply
@@ -48,9 +21,11 @@ class Robot :
 		for x in range (0,numberOfPunches):
 			self.punch()	
 	
-	# def chargedrain():
-
 class JuggernautRobot(Robot):
+
+	def punch(self, amount=5):
+		super(JuggernautRobot, self).punch(amount)
+		
 	
 	def earthquake(self, amount=3):
 		punchList = ['HULK SMASH', 'Prepare for death', 'Im a Brick House', 'What is your mom doing later', 'Ugnnnngggggghghhhhghhhhhhh']
@@ -92,37 +67,6 @@ class HellKnightRobot(Robot):
 		else:
 			print "Battery Power Depleted"
 			
-class PowerSupply :
-		
-	def __init__ (self, powerBalance):
-		self.powerBalance = powerBalance
-		
-	def drain (self, amount):
-		if (self.powerBalance > 0):
-			self.powerBalance -= amount
-		else:
-			print "insufficient power"
-		
-	def printPowerBalance (self):
-		print self.powerBalance 
-	
-class RechargableBattery(PowerSupply):
-			
-	def charge (self, amount):
-		self.powerBalance += amount
-		
-menu = Menu()
-menu.pickRobot()
-
-duracelBattery = RechargableBattery(100)
-juggernaut = JuggernautRobot(duracelBattery)
-
-number = raw_input('How many punches?:')
-juggernaut.multiplePunch(int(number))
-print "======================================="
-print "current power balance: "
-duracelBattery.printPowerBalance()
-
 
 
 
