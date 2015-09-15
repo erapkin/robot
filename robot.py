@@ -5,6 +5,7 @@ class Menu:
 
 		print "Which robot do you want to choose?"
 		print "1)Wraith, 2)Hell Knight 3)Juggernaut"
+		running = True
 		while running:	
 			try:
 				robotPick = (int)(raw_input())
@@ -51,8 +52,7 @@ class Robot :
 
 class JuggernautRobot(Robot):
 	
-	def earthquake(self,amount):
-		self.powersupply.drain(amount)
+	def earthquake(self, amount=3):
 		punchList = ['HULK SMASH', 'Prepare for death', 'Im a Brick House', 'What is your mom doing later', 'Ugnnnngggggghghhhhghhhhhhh']
 		
 		if (self.powerSupply.powerBalance > 4):
@@ -65,7 +65,6 @@ class JuggernautRobot(Robot):
 class WraithRobot(Robot):
 	
 	def manipulateAether(self,amount):
-		self.powerSupply.drain(amount)
 		punchList = ['I see you', 'Turn around and DIEEEE!!', 'I AM OMNISCIENCE', 'The dark lord calls you', 'Casper is my cousin twice removed']
 		
 		if (self.powerSupply.powerBalance > 4):
@@ -77,15 +76,13 @@ class WraithRobot(Robot):
 
 class ShinobiRobot(Robot):
 
-	
 	def teleportSlash(self,amount):
 		self.powerSupply.drain(amount)
 		punchList = []
 
 class HellKnightRobot(Robot):
-	
+
 	def	doomLance(self,amount):
-		self.powersupply.drain(amount)
 		punchList = ['For glory and dishonor.', 'Reaping souls since 2015', 'My fury engulfs all', 'Deaths grasp is infinite', 'I give no quarter']
 		
 		if (self.powerSupply.powerBalance > 4):
@@ -94,14 +91,7 @@ class HellKnightRobot(Robot):
 			print (str(self.powerSupply.powerBalance) + " power point" + "(s) " + "remaining\n")
 		else:
 			print "Battery Power Depleted"
-		
-		
-		
-
-		
-		
-
-		
+			
 class PowerSupply :
 		
 	def __init__ (self, powerBalance):
@@ -124,12 +114,15 @@ class RechargableBattery(PowerSupply):
 menu = Menu()
 menu.pickRobot()
 
-'''number = raw_input('How many punches?:')
-shinobi.multiplePunch(int(number))
+duracelBattery = RechargableBattery(100)
+juggernaut = JuggernautRobot(duracelBattery)
+
+number = raw_input('How many punches?:')
+juggernaut.multiplePunch(int(number))
 print "======================================="
 print "current power balance: "
 duracelBattery.printPowerBalance()
-'''
+
 
 
 
